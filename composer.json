@@ -1,0 +1,27 @@
+{
+  "name": "matucana/weather-bot",
+  "description": "Weather bot sending notifications to vk or telegram.",
+  "type": "project",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Vinogradov Victor",
+      "email": "victor.dialogbox@gmail.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "autoload": {
+    "psr-4": {
+      "Matucana\\WeatherBot\\": "src/"
+    }
+  },
+  "require": {
+    "telegram-bot/api":"*",
+    "vlucas/phpdotenv": "*",
+    "monolog/monolog": "*",
+    "vkcom/vk-php-sdk": "5.101.0",
+    "cmfcmf/openweathermap-php-api": "3.3.*",
+    "http-interop/http-factory-guzzle":"*",
+    "php-http/guzzle6-adapter": "*"
+  }
+}
