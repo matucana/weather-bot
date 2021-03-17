@@ -18,7 +18,6 @@
   "require": {
     "telegram-bot/api":"*",
     "vlucas/phpdotenv": "*",
-    "monolog/monolog": "*",
     "vkcom/vk-php-sdk": "5.101.0",
     "cmfcmf/openweathermap-php-api": "3.3.*",
     "http-interop/http-factory-guzzle":"*",
