@@ -7,6 +7,7 @@ use Cmfcmf\OpenWeatherMap;
 use Cmfcmf\OpenWeatherMap\Exception as OWMException;
 use Http\Factory\Guzzle\RequestFactory;
 use Http\Adapter\Guzzle6\Client as GuzzleAdapter;
+use Matucana\WeatherBot\Handlers\Handler;
 
 class App
 {
@@ -17,6 +18,8 @@ class App
     protected OpenWeatherMap $owm;
 
     protected Converter $converter;
+
+    private array $handlers;
 
     private array $location;
 
@@ -33,6 +36,7 @@ class App
         $this->location = $location;
         $this->units = $units;
         $this->lang = $lang;
+        $this->handlers = [];
     }
 
     public function getWeather(): OpenWeatherMap\CurrentWeather
@@ -60,9 +64,28 @@ class App
         return $this->formatMessage($message);
     }
 
+    public function addHandler(Handler $handler)
+    {
+        $this->handlers[] = $handler;
+    }
+
+    public function addHandlers(array $handlers)
+    {
+        $this->handlers = array_merge($this->handlers, $handlers);
+    }
+
+    public function run()
+    {
+        if (count($this->handlers) !== 0) {
+            foreach ($this->handlers as $handler) {
+                $handler->handle($this->getMessageCurrentWeather());
+            }
+        }
+    }
+
     private function formatMessage(array $message): string
     {
-        return "\xe2\x9a\xa0 Погода на ".$message['last_update']. "\n\xf0\x9f\x8c\xa1 Температура: ".$message['temperature']."\n\xf0\x9f\xa7\xaf Давление: ".$message['pressure']." мм. рт. ст.\n\xf0\x9f\x92\xa7 Влажность: ".$message['humidity']. "\n\xf0\x9f\x8c\xac Скорость ветра: ".$message['windSpeed']." м/сек\n\xf0\x9f\xa7\xad Направление: ".$message['windDirection']."\n\xe2\x98\x81 Облачность: ".$message['clouds']."\n\xe2\x98\x94 Осадки: ".$message['precipitation']."%"."\n\xf0\x9f\x8c\x85 Восход: ".$message['sunrise']."\n\xf0\x9f\x8c\x87 Закат: ".$message['sunset']."\n@all";
+        return "\xe2\x9a\xa0 Погода на ".$message['last_update']. "\n\xf0\x9f\x8c\xa1 Температура: ".$message['temperature']."\n\xf0\x9f\xa7\xaf Давление: ".$message['pressure']." мм. рт. ст.\n\xf0\x9f\x92\xa7 Влажность: ".$message['humidity']. "\n\xf0\x9f\x8c\xac Скорость ветра: ".$message['windSpeed']." м/сек\n\xf0\x9f\xa7\xad Направление: ".$message['windDirection']."\n\xe2\x98\x81 Облачность: ".$message['clouds']."\n\xe2\x98\x94 Осадки: ".$message['precipitation']."%"."\n\xf0\x9f\x8c\x85 Восход: ".$message['sunrise']."\n\xf0\x9f\x8c\x87 Закат: ".$message['sunset'];
     }
 
 }
