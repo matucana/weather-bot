@@ -16,12 +16,12 @@
     }
   },
   "require": {
-    "php": ">7.4.0",
-    "telegram-bot/api":"*",
-    "vlucas/phpdotenv": "*",
-    "vkcom/vk-php-sdk": "5.101.0",
+    "php": ">=7.4",
+    "telegram-bot/api":"2.3.*",
+    "vlucas/phpdotenv": "5.3.*",
+    "vkcom/vk-php-sdk": "5.101.*",
     "cmfcmf/openweathermap-php-api": "3.3.*",
-    "http-interop/http-factory-guzzle":"*",
-    "php-http/guzzle6-adapter": "*"
+    "http-interop/http-factory-guzzle":"1.0.*",
+    "php-http/guzzle6-adapter": "2.0.*"
   }
 }
