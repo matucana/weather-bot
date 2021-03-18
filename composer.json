@@ -16,6 +16,7 @@
     }
   },
   "require": {
+    "php": ">7.4.0",
     "telegram-bot/api":"*",
     "vlucas/phpdotenv": "*",
     "vkcom/vk-php-sdk": "5.101.0",
