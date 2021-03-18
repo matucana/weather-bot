@@ -1,6 +1,6 @@
 {
   "name": "matucana/weather-bot",
-  "description": "Weather bot sending notifications to vk or telegram.",
+  "description": "Weather bot sending notifications to vk.com",
   "type": "project",
   "license": "MIT",
   "authors": [
@@ -17,7 +17,6 @@
   },
   "require": {
     "php": ">=7.4",
-    "telegram-bot/api":"2.3.*",
     "vlucas/phpdotenv": "5.3.*",
     "vkcom/vk-php-sdk": "5.101.*",
     "cmfcmf/openweathermap-php-api": "3.3.*",
