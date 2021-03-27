@@ -64,7 +64,7 @@ $app->addHandler(Handler $mainHandler);
 $app->run();
 ```
 Если вы хотите подключить несколько обработчиков, используйте метод 
-`$app->addHandler(array $handlers)`
+`$app->addHandlers(array $handlers)`
 ```php
 $mainHandler = new MainHandler();
 $vkHandler = new VkHandler($_ENV['VK_API_KEY'], $_ENV['VK_PEER_ID']);
