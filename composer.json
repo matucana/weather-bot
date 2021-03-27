@@ -2,7 +2,14 @@
   "name": "matucana/weather-bot",
   "description": "Weather bot sending notifications to vk.com",
   "type": "project",
+  "keywords": [
+    "weather, chat-bot, vk.com, openweather"
+  ],
+  "homepage": "https://github.com/matucana/weather-bot",
   "license": "MIT",
+  "support": {
+    "email": "victor.dialogbox@gmail.com"
+  },
   "authors": [
     {
       "name": "Vinogradov Victor",
@@ -10,17 +17,22 @@
     }
   ],
   "minimum-stability": "stable",
-  "autoload": {
-    "psr-4": {
-      "Matucana\\WeatherBot\\": "src/"
-    }
-  },
   "require": {
     "php": ">=7.4",
     "vlucas/phpdotenv": "5.3.*",
     "vkcom/vk-php-sdk": "5.101.*",
     "cmfcmf/openweathermap-php-api": "3.3.*",
-    "http-interop/http-factory-guzzle":"1.0.*",
+    "http-interop/http-factory-guzzle": "1.0.*",
     "php-http/guzzle6-adapter": "2.0.*"
+  },
+  "require-dev": {
+  },
+  "suggest": {
+    "monolog/monolog": "Allows more advanced logging of the application flow"
+  },
+  "autoload": {
+    "psr-4": {
+      "Matucana\\WeatherBot\\": "src/"
+    }
   }
 }
