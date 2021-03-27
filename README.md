@@ -1,5 +1,5 @@
 
-<img src="https://img.shields.io/packagist/php-v/matucana/weather-bot/v1.1.2?label=PHP" alt="php version">
+<img src="https://img.shields.io/packagist/php-v/matucana/weather-bot/v1.1.4?label=PHP" alt="php version">
 <img src="https://img.shields.io/packagist/l/matucana/weather-bot" alt="License">
 
 # Weather bot
