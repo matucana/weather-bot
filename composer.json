@@ -23,9 +23,8 @@
     "vkcom/vk-php-sdk": "5.101.*",
     "cmfcmf/openweathermap-php-api": "3.3.*",
     "http-interop/http-factory-guzzle": "1.0.*",
-    "php-http/guzzle6-adapter": "2.0.*"
-  },
-  "require-dev": {
+    "php-http/guzzle6-adapter": "2.0.*",
+    "php-di/php-di": "^6.3"
   },
   "suggest": {
     "monolog/monolog": "Allows more advanced logging of the application flow"
