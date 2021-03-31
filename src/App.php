@@ -85,7 +85,7 @@ class App
 
     private function formatMessage(array $message): string
     {
-        return "\xe2\x9a\xa0 Погода на ".$message['last_update']. "\n\xf0\x9f\x8c\xa1 Температура: ".$message['temperature']."\n\xf0\x9f\xa7\xaf Давление: ".$message['pressure']." мм. рт. ст.\n\xf0\x9f\x92\xa7 Влажность: ".$message['humidity']. "\n\xf0\x9f\x8c\xac Скорость ветра: ".$message['windSpeed']." м/сек\n\xf0\x9f\xa7\xad Направление: ".$message['windDirection']."\n\xe2\x98\x81 Облачность: ".$message['clouds']."\n\xe2\x98\x94 Осадки: ".$message['precipitation']."%"."\n\xf0\x9f\x8c\x85 Восход: ".$message['sunrise']."\n\xf0\x9f\x8c\x87 Закат: ".$message['sunset'];
+        return "\xe2\x9a\xa0 Погода на " . $message['last_update'] . "\n\xf0\x9f\x8c\xa1 Температура: " . $message['temperature'] . "\n\xf0\x9f\xa7\xaf Давление: " . $message['pressure'] . " мм. рт. ст.\n\xf0\x9f\x92\xa7 Влажность: " . $message['humidity'] . "\n\xf0\x9f\x8c\xac Скорость ветра: " . $message['windSpeed'] . " м/сек\n\xf0\x9f\xa7\xad Направление: " . $message['windDirection'] . "\n\xe2\x98\x81 Облачность: " . $message['clouds'] . "\n\xe2\x98\x94 Осадки: " . $message['precipitation'] . "%" . "\n\xf0\x9f\x8c\x85 Восход: " . $message['sunrise'] . "\n\xf0\x9f\x8c\x87 Закат: " . $message['sunset'];
     }
 
 }
