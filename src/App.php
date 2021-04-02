@@ -5,21 +5,17 @@ namespace Matucana\WeatherBot;
 
 use Cmfcmf\OpenWeatherMap;
 use Cmfcmf\OpenWeatherMap\Exception as OWMException;
-use Http\Factory\Guzzle\RequestFactory;
-use Http\Adapter\Guzzle6\Client as GuzzleAdapter;
 use Matucana\WeatherBot\Handlers\Handler;
 
 class App
 {
-    protected RequestFactory $httpRequestFactory;
 
-    protected GuzzleAdapter $httpClient;
 
     protected OpenWeatherMap $owm;
 
-    protected Converter $converter;
-
     private array $handlers;
+
+    protected Converter $converter;
 
     private array $location;
 
@@ -27,12 +23,10 @@ class App
 
     private string $lang;
 
-    public function __construct(array $location, string $units = 'metric', string $lang = 'ru')
+    public function __construct(Converter $converter, OpenWeatherMap $owm, array $location, string $units = 'metric', string $lang = 'ru')
     {
-        $this->httpRequestFactory = new RequestFactory();
-        $this->httpClient = GuzzleAdapter::createWithConfig([]);
-        $this->owm = new OpenWeatherMap($_ENV['OPEN_WEATHER_API_KEY'], $this->httpClient, $this->httpRequestFactory);
-        $this->converter = new Converter();
+        $this->owm = $owm;
+        $this->converter = $converter;
         $this->location = $location;
         $this->units = $units;
         $this->lang = $lang;
