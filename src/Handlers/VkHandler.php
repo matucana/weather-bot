@@ -1,5 +1,6 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Matucana\WeatherBot\Handlers;
 
@@ -14,11 +15,18 @@ class VkHandler implements Handler
 
     private int $peerId;
 
-    public function __construct(string $apiKey, int $peerId)
+    private float $lat;
+
+    private float $long;
+
+    public function __construct(string $apiKey, int $peerId, float $lat, float $long)
     {
         $this->vk = new VKApiClient();
         $this->apiKey = $apiKey;
-        $this->peerId = $peerId;    }
+        $this->peerId = $peerId;
+        $this->lat = $lat;
+        $this->long = $long;
+    }
 
     public function handle(string $message)
     {
@@ -28,12 +36,14 @@ class VkHandler implements Handler
                 'peer_id' => $this->peerId,
                 'random_id' => $this->random(),
                 'message' => $message,
-                'lat' => $_ENV['LAT'], 'long' => $_ENV['LONG']
-            ]);
+                'lat' => $this->lat,
+                'long' => $this->long
+            ]
+        );
     }
 
     private function random(): int
     {
-        return mt_rand(0,mt_getrandmax());
+        return mt_rand(0, mt_getrandmax());
     }
 }
