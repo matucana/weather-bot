@@ -23,8 +23,13 @@ class App
 
     private string $lang;
 
-    public function __construct(Converter $converter, OpenWeatherMap $owm, array $location, string $units = 'metric', string $lang = 'ru')
-    {
+    public function __construct(
+        Converter $converter,
+        OpenWeatherMap $owm,
+        array $location,
+        string $units = 'metric',
+        string $lang = 'ru'
+    ) {
         $this->owm = $owm;
         $this->converter = $converter;
         $this->location = $location;
@@ -37,6 +42,15 @@ class App
     {
         try {
             return $this->owm->getWeather($this->location, $this->units, $this->lang);
+        } catch (OWMException $e) {
+            throw new AppException($e);
+        }
+    }
+
+    public function getWeatherForecast(): OpenWeatherMap\WeatherForecast
+    {
+        try {
+            return $this->owm->getWeatherForecast($this->location, $this->units, $this->lang);
         } catch (OWMException $e) {
             throw new AppException($e);
         }
